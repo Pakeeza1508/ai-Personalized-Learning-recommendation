@@ -1,0 +1,120 @@
+What is the purpose of the TCP/IP protocol suite?
+To secure network connections
+To manage email communications
+To facilitate data transmission over networks
+To develop web applications
+c
+Which programming paradigm emphasizes the use of functions and procedures as fundamental building blocks of software development?
+Object-oriented programming
+Procedural programming
+Functional programming
+Declarative programming
+b
+What is the primary function of a router in a computer network?
+To connect devices within a LAN
+To filter incoming and outgoing network traffic
+To convert digital signals into analog signals
+To provide wireless connectivity
+b
+Which data structure is typically used to implement priority queues?
+Stack
+Queue
+Heap
+Linked list
+c
+What does RAID stand for in the context of data storage?
+Redundant Array of Independent Disks
+Random Access Indexed Data
+Rapid Access Information Device
+Remote Access Integrated Drive
+a
+Which encryption algorithm is commonly used for secure communication over the internet?
+RSA
+SHA
+AES
+MD5
+c
+What is the purpose of a VPN (Virtual Private Network)?
+To provide secure remote access to a private network
+To optimize internet speed
+To filter spam emails
+To manage network resources
+a
+Which database model is based on the concept of storing data in key-value pairs?
+Relational database
+Document-oriented database
+Graph database
+Key-value store
+d
+What does XSS stand for in the context of web security?
+Cross-Site Scripting
+XML Security Standards
+Extended Server Support
+External System Scanning
+a
+What is the purpose of a compiler optimization?
+To reduce code size
+To improve code performance
+To enhance code readability
+To simplify code maintenance
+b
+Which protocol is commonly used for transferring files between a client and a server over a network?
+FTP
+SMTP
+SNMP
+DHCP
+a
+In the context of web development, what does AJAX stand for?
+Asynchronous JavaScript and XML
+Advanced Java Application Extensions
+Automated JavaScript and XML
+Asynchronous JSON and XML
+a
+What is the purpose of a CAPTCHA?
+To secure network connections
+To prevent automated software from accessing web services
+To encrypt data transmissions
+To optimize database performance
+b
+What does IPv6 stand for?
+Internet Protocol Version 6
+International Video Protocol 6
+Internet Virtualization Protocol 6
+Interconnected Voice Protocol 6
+a
+What is the main advantage of using a microservices architecture in software development?
+Improved scalability
+Simplified deployment
+Reduced development time
+Enhanced security
+a
+Which data structure is commonly used to implement a symbol table in compilers?
+Hash table
+Binary search tree
+Linked list
+Heap
+a
+What does SSL/TLS stand for in the context of web security?
+Secure Socket Layer/Transport Layer Security
+Secure System Link/Transmission Level Security
+Server Side Language/Transaction Level Security
+Structured System Language/Transport Layer Standard
+a
+What is the purpose of a CDN (Content Delivery Network)?
+To secure network connections
+To optimize website performance
+To manage database transactions
+To encrypt data transmissions
+b
+Which type of attack involves impersonating a legitimate user to gain unauthorized access to a system?
+DDoS attack
+Phishing attack
+SQL injection attack
+Man-in-the-middle attack
+b
+What is the function of a proxy server?
+To filter and forward network traffic
+To encrypt data transmissions
+To manage database connections
+To optimize server performance
+a

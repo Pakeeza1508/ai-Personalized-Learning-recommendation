@@ -1,0 +1,120 @@
+What is the purpose of an operating system?
+To perform mathematical calculations
+To manage hardware resources
+To design websites
+To create graphics
+b   
+Which programming language is commonly used for building mobile applications?
+Java
+C#
+Swift
+PHP
+c   
+What does SQL stand for?
+Structured Query Language
+Standard Query Language
+Simple Query Language
+Sequential Query Language
+a   
+What is the purpose of a compiler?
+To convert high-level code into machine code
+To execute code line by line
+To debug programs
+To create graphical interfaces
+a   
+Which data structure uses the Last In, First Out (LIFO) principle?
+Queue
+Stack
+Array
+Linked List
+b   
+What is the function of an API (Application Programming Interface)?
+To manage databases
+To interact with external software components
+To perform mathematical operations
+To create user interfaces
+  b 
+Which encryption algorithm is commonly used for secure communication over the internet?
+AES (Advanced Encryption Standard)
+DES (Data Encryption Standard)
+RSA (Rivest-Shamir-Adleman)
+MD5 (Message Digest Algorithm 5)
+a   
+What is the purpose of a DNS (Domain Name System)?
+To convert IP addresses into domain names
+To convert domain names into IP addresses
+To create websites
+To secure networks
+b   
+Which type of database organizes data into tables with rows and columns?
+Relational database
+NoSQL database
+Hierarchical database
+Object-oriented database
+a   
+What does HTML5 introduce to improve web page structure and semantics?
+New programming languages
+Multimedia elements
+Semantic elements
+Animation effects
+c   
+What is the purpose of version control software?
+To manage changes to software code
+To analyze data
+To create virtual environments
+To encrypt data
+a
+Which protocol is used for sending emails over the internet?
+FTP (File Transfer Protocol)
+SMTP (Simple Mail Transfer Protocol)
+HTTP (Hypertext Transfer Protocol)
+DHCP (Dynamic Host Configuration Protocol)
+b   
+What is the function of a VPN (Virtual Private Network)?
+To host websites
+To secure internet connections
+To create databases
+To manage files
+b   
+Which type of programming language is compiled and executed on a virtual machine?
+Compiled language
+Interpreted language
+Assembly language
+Scripting language
+b   
+What is the purpose of a firewall in a network?
+To filter spam emails
+To prevent unauthorized access
+To optimize internet speed
+To organize data
+b   
+Which type of attack involves flooding a network or server with excessive traffic to disrupt normal operation?
+Phishing
+DDoS (Distributed Denial of Service)
+Malware
+Spoofing
+b
+What does HTTP stand for?
+Hypertext Transfer Protocol
+High Traffic Hypertext Protocol
+Hyperlink Text Transfer Protocol
+Hypertext Transmission Protocol
+a   
+What is the purpose of a cache memory in a computer?
+To store frequently accessed data for faster retrieval
+To process mathematical calculations
+To display graphics
+To manage internet connections
+a   
+Which type of software allows users to create and edit vector graphics?
+Word processor
+Image editor
+Spreadsheet software
+Vector graphics editor
+d   
+What is the main advantage of cloud computing?
+Lower cost
+Faster processing speed
+Larger storage capacity
+Higher security
+a   

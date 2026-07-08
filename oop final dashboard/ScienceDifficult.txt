@@ -1,0 +1,120 @@
+1. What is the process by which light is refracted when passing through a prism?
+Reflection
+Diffraction
+Dispersion
+Absorption
+C
+2. Which of the following is a fundamental force of nature responsible for holding atomic nuclei together?
+Gravitational force
+Electromagnetic force
+Weak nuclear force
+Strong nuclear force
+D
+3. What is the term for the spontaneous emission of radiation from an unstable atomic nucleus?
+Fission
+Fusion
+Radioactivity
+Decay
+C
+4. What is the main component of the Earth's atmosphere by volume?
+Oxygen
+Nitrogen
+Carbon dioxide
+Argon
+B
+5. Which of the following is NOT a type of electromagnetic radiation?
+X-rays
+Ultraviolet rays
+Infrared rays
+Sound waves
+D
+6. What is the SI unit of electric charge?
+ Ampere
+Coulomb
+Volt
+Ohm
+B
+7. Which of the following is a characteristic property of a black hole?
+It emits light
+It has infinite density
+It repels matter
+It has a finite size
+B
+8. What is the process by which an unstable atomic nucleus transforms into a more stable nucleus by emitting alpha, beta, or gamma radiation?
+Fusion
+Fission
+Radioactivity
+Decay
+D
+9. Which of the following is NOT a greenhouse gas?
+Carbon dioxide
+Methane
+Oxygen
+Water vapor
+C
+10. What is the term for the change in frequency or wavelength of a wave in relation to an observer moving relative to the source of the wave?
+Refraction
+Diffraction
+Doppler effect
+Polarization
+C
+11. Which of the following is a property of a superconductor?
+High resistance to electric current
+Low resistance to electric current
+Low melting point
+High ductility
+B
+12. What is the process by which light waves are bent as they pass from one medium to another?
+Reflection
+Diffraction
+Refraction
+Absorption
+C
+13. Which of the following is a unit of luminous flux?
+Watt
+Ampere
+Lumen
+Candela
+C
+14. What is the term for the bending of a wave around obstacles or through openings?
+Reflection
+Refraction
+Diffraction
+Interference
+C
+15. Which of the following is a property of a semiconductor?
+High conductivity
+Low conductivity
+High melting point
+High density
+B
+16. What is the unit of measurement for frequency?
+Hertz
+Newton
+Pascal
+Watt
+A
+17. What is the SI unit of work and energy?
+Newton
+Joule
+Watt
+Volt
+B
+18. Which of the following is a property of a convex lens?
+Diverges light rays
+Converges light rays
+Forms virtual images
+Forms inverted images
+B
+19. What is the term for the process by which an atom gains or loses electrons, resulting in the formation of charged particles?
+Ionization
+Polarization
+Radiation
+Conduction
+A
+20. Which of the following is a property of a ferromagnetic material?
+Low magnetic susceptibility
+High magnetic permeability
+Low retentivity
+High coercivity
+B

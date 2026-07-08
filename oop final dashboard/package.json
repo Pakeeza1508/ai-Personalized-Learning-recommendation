@@ -1,0 +1,17 @@
+{
+  "name": "usman-test-google-bard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Muhammad Usman Rana",
+  "contributors": ["Minhal Zubair"],
+  "license": "ISC",
+  "dependencies": {
+    "bard-ai": "^2.0.3",
+    "bard-api-node": "^2.1.0"
+  }
+}

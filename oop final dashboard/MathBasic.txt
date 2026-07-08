@@ -1,0 +1,120 @@
+if a triangle have angles 60,60 and 60 then which triangle is it?
+equilatral
+right 
+isolaces
+none of these 
+a
+What is the value of Pi (π) rounded to two decimal places?
+3.12
+3.14
+3.16
+3.18
+b
+What is the square root of 64?
+6
+7
+8
+9
+c
+What is the value of 2+2?
+3
+4
+5
+6
+b
+What is 9×3?
+27
+26
+24
+21
+a
+What is the square root of 64?
+6
+7
+8
+9
+c
+If x=5, what is the value of 3x+2?
+15
+17
+20
+25
+b
+What is 15÷3?
+3
+4
+5
+6
+c
+What is the value of 5^2?
+10
+15
+20
+25
+d
+What is the perimeter of a rectangle with length 8 and width 5?
+13
+26
+40
+80
+b 
+What is the solution to the equation2x+3=7?
+1
+2
+3
+4
+b
+If y=3x+2, what is the value of y when x=4?
+10
+12
+14
+16
+c
+What is the area of a circle with radius 5? (Use π≈3.14)
+25.5
+50.5
+78.5
+100.5
+c
+What is the value of (3^2×2)−4?
+8
+10
+14
+16
+c
+If the length of a rectangle is 8 and the width is 6, what is the perimeter of the rectangle?
+24
+28
+30
+32
+b
+Which of the following is the factorization of x^2−9?
+(x−3)(x−3)
+(x+3)(x+3)
+(x−3)(x+3)
+(x−9)(x+1)
+c
+What is the value of squareroot 144?
+10
+11
+12
+13
+c
+What is the slope of the line passing through the points (2, 3) and (4, 7)?
+1
+2
+3
+4
+b
+The area of a circle with a radius of 3 cm is:
+6π cm²
+9π cm²
+12π cm²
+18π cm²
+b
+What is the sum of the interior angles of a triangle?
+90 degrees
+180 degrees
+270 degrees
+360 degrees
+b

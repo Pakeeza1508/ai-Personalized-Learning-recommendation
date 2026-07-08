@@ -1,0 +1,120 @@
+Which of the following is a vector quantity?
+Speed
+Mass
+Velocity
+Distance
+c
+What is the term for the phenomenon where light waves change direction as they pass from one medium to another?
+Reflection
+Refraction
+Diffraction
+Dispersion
+b
+What is the unit of measurement for electric charge?
+Ampere
+Volt
+Coulomb
+Watt
+c
+What is the SI unit of capacitance?
+Ohm
+Farad
+Tesla
+Weber
+b
+Which of the following is a property of an ideal transformer?
+Efficiency of 100%
+Produces no magnetic field
+No energy losses
+Operates without heat dissipation
+c
+What is the phenomenon where a wave's amplitude increases due to constructive interference?
+Reflection
+Diffraction
+Refraction
+Amplification
+d
+Which of the following is a characteristic property of a concave mirror?
+Forms real images
+Diverges light rays
+Always produces enlarged images
+Forms virtual images
+a
+What is the term for the force of attraction or repulsion between electrically charged objects?
+Gravitational force
+Magnetic force
+Electrostatic force
+Nuclear force
+c
+Which of the following is a unit of power?
+Coulomb
+Joule
+Watt
+Newton
+c
+What is the term for the property of a material that opposes the flow of electric current?
+Conductance
+Resistance
+Capacitanc
+Inductance
+b
+Which of the following is a type of nuclear decay where an electron is emitted from the nucleus?
+Alpha decay
+Beta decay
+Gamma decay
+Positron emission
+b
+What is the term for the process by which a substance changes directly from a solid to a gas without passing through the liquid phase?
+Melting
+Sublimation
+Evaporation
+Condensation
+b
+What is the SI unit of magnetic flux?
+Weber
+Tesla
+Gauss
+Henry
+a
+What is the term for the product of an object's mass and velocity?
+Energy
+Momentum
+Power
+Force
+b
+Which of the following is a property of a convex lens?
+Forms real images
+Converges light rays
+Always produces diminished images
+Forms virtual images
+b
+What is the term for the time it takes for one complete cycle of a wave to pass a given point?
+Amplitude
+Wavelength
+Frequency
+Period
+d
+Which of the following is a characteristic property of an ideal gas?
+High viscosity
+Low compressibility
+No intermolecular forces
+Low thermal conductivity
+c
+What is the SI unit of magnetic field strength?
+Tesla
+Weber
+Gauss
+Henry
+a
+Which of the following is a property of an inelastic collision?
+Total kinetic energy is conserved
+Total momentum is conserved
+Objects stick together after collision
+Objects bounce off each other after collision
+c
+What is the term for the phenomenon where an object's apparent frequency changes as a result of relative motion between the source and observer?
+Refraction
+Diffraction
+Doppler effect
+Polarization
+c

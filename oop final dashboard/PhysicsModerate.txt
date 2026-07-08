@@ -1,0 +1,120 @@
+What is the SI unit of force?
+Newton
+Joule
+Watt
+Ampere
+a  
+What is the speed of light in a vacuum?
+300,000 km/s
+3,000 km/s
+30,000 km/s
+300 km/s
+a   
+What is the term for the force that opposes motion between surfaces in contact?
+Friction
+Gravity
+Inertia
+Tension
+a  
+Which of the following is a unit of energy?
+Watt
+Newton
+Joule
+Volt
+c   
+What is the SI unit of distance?
+Meter
+Kilogram
+Second
+Pascal
+a   
+What is the formula to calculate speed?
+Speed = Distance × Time
+Speed = Time / Distance
+Speed = Distance / Time
+Speed = Distance + Time
+c  
+What is the term for the force that pulls objects towards the Earth?
+Magnetism
+Friction
+Gravity
+Buoyancy
+c   
+Which of the following is a unit of power?
+Volt
+Watt
+Ohm
+Ampere
+b   
+What is the formula to calculate acceleration?
+Acceleration = Final velocity - Initial velocity
+Acceleration = Distance / Time
+Acceleration = Force / Mass
+Acceleration = Change in velocity / Time
+d   
+Which of the following is a scalar quantity?
+Velocity
+Acceleration
+Distance
+Force
+c   
+What is the term for the energy possessed by a moving object?
+Potential energy
+Kinetic energy
+Mechanical energy
+Thermal energy
+b   
+What is the SI unit of mass?
+Newton
+Joule
+Kilogram
+Meter
+c   
+Which of the following is a unit of time?
+Pascal
+Watt
+Joule
+Second
+d   
+What is the term for the resistance of an object to changes in its state of motion?
+Momentum
+Inertia
+Velocity
+Acceleration
+b   
+What is the formula to calculate work done?
+Work = Force × Time
+Work = Distance / Force
+Work = Force × Distance
+Work = Mass × Acceleration
+c   
+Which of the following is a unit of force?
+Joule
+Pascal
+Newton
+Watt
+c   
+What is the term for the product of an object's mass and velocity?
+Momentum
+Inertia
+Force
+Energy
+a   
+What is the formula to calculate gravitational potential energy?
+Gravitational Potential Energy = Mass × Velocity
+Gravitational Potential Energy = Mass × Height
+Gravitational Potential Energy = Mass × Acceleration
+Gravitational Potential Energy = Mass × Time
+b   
+What is the acceleration due to gravity on Earth's surface?
+9.8 m/s²
+10 m/s²
+5 m/s²
+7.5 m/s²
+a   
+What is the term for the force exerted by a stretched or compressed spring?
+Friction
+Tension
+Gravity
+Elastic force
+d

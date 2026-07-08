@@ -1,0 +1,120 @@
+What is the value of 0.9‾?
+1
+0.9
+0.8
+0.1
+a
+Which of the following statements about zero is true? 
+Zero is an odd number 
+Zero is an even number
+Zero is neither odd nor even 
+Zero is a prime number
+b
+How many times can you subtract 5 from 25?
+Once
+Twice
+Five times
+It's not possible to subtract 5 from 25
+a
+What is the next number in the sequence: 1, 11, 21, 1211, 111221, ...? 
+12112111
+312211 
+111211 
+31221111
+b
+8−4×2=? What is the result?
+ 0
+ 2
+ 4
+ 12
+b
+A bat and a ball together cost $1.10. The bat costs $1 more than the ball. How much does the ball cost?
+ $0.05
+ $0.10
+ $1.00
+ $0.95
+a
+What comes next in the sequence: 3, 3, 5, 4, 4, 3, 5,...?
+ 4
+ 5
+ 6
+ 3
+a
+If x+ 1/x=4 what is the value of x2+ 1/x2?
+ 8
+ 12
+ 14
+ 16
+ b
+Which of these fractions is the largest?
+3/4 
+2/3 
+5/6 
+ 4/5
+c
+What is the next letter in the sequence: O, T, T, F, F, S, S,...?
+ N
+ E
+ T
+ H
+ a
+ What is the value of  0!/1!?
+ 0
+ 1
+ Undefined
+ Infinity
+ b
+What is the sum of the first 10 prime numbers?
+ 129
+ 235
+ 237
+ 247
+ b
+What is the result of 1+2+3+4+………….+99+100?
+ 5000
+ 5050
+ 4950
+ 10000
+ b
+ How many sides does a pentagon have?
+ 5
+ 6
+ 7
+ 8
+a
+What is the missing number in the sequence: 1, 4, 9, 16, 25,...?
+ 36
+ 40
+ 49
+ 64
+c
+Which of the following is the largest angle?
+ 90 degrees
+ 180 degrees
+ 270 degrees
+ 360 degrees
+d
+What is the sum of all the interior angles in a hexagon?
+ 360 degrees
+ 540 degrees
+ 720 degrees
+ 900 degrees
+a
+How many times does the digit 3 appear from 1 to 100?
+ 10
+ 11
+ 18
+ 20
+ b
+What is the result of 0!? 
+ 0 
+ 1
+ Undefined
+ Infinity
+b
+How many zeros are there at the end of 100 factorial (100!)?
+ 24
+ 25
+ 26
+ 27
+c

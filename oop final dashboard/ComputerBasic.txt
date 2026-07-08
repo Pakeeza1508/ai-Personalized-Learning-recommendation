@@ -1,0 +1,60 @@
+What is a computer?
+A type of animal
+A machine that can store and process information
+A piece of furniture
+A type of food
+b
+Which part of the computer displays the information?
+Mouse
+Keyboard
+Monitor
+Printer
+c
+What do you use to type on a computer?
+Mouse
+Monitor
+Keyboard
+Speaker
+c
+Which part of the computer is used to click and select items?
+Monitor
+Keyboard
+Mouse
+CPU
+c
+What is the main function of the CPU in a computer?
+To store information
+To process and execute instructions
+To display images
+To print documents
+b
+Which device is used to output sound from a computer?
+Monitor
+Keyboard
+Speakers
+Printer
+c
+Which of the following is a programming language?
+HTML
+USB
+CPU
+RAM
+a
+What is the full form of 'RAM'?
+Random Access Memory
+Read Access Memory
+Readily Available Memory
+Random Available Memory
+a
+Which one of these is an input device?
+Monitor
+Printer
+Keyboard
+Speaker
+c
+Which of the following is NOT an operating system?
+Windows
+Linux
+MacOS
+Microsoft Office
+d
