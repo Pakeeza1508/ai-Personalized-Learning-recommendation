@@ -469,38 +469,9 @@ Current limitations include:
 
 ---
 
-# Research Relevance to MITACS GRI 2027
+# Research Extensions
 
-This project is particularly relevant to my selected MITACS Globalink Research Internship project:
-
-**Project 51202 — LLM-Powered Intelligent Educational Systems, Athabasca University.**
-
-That research direction focuses on using large language models in personalized online learning, including areas such as:
-
-- learner-aware educational support;
-- personalized learning paths;
-- planning learning activities;
-- adaptive practice;
-- formative assessment;
-- structured representations of curriculum and learner knowledge.
-
-My semester project implements a much smaller prototype of the same general research problem:
-
-```text
-Assessment
-    ↓
-Learner-performance signal
-    ↓
-LLM interpretation
-    ↓
-Personalized learning guidance
-```
-
-The current project does not yet implement knowledge graphs or a full adaptive-learning policy. Instead, it gave me practical experience with an important first step: connecting deterministic learner assessment with an LLM-based recommendation component.
-
-The architecture also exposes clear research extensions.
-
-## Possible Research Extension
+The current system is a useful baseline for more advanced work in adaptive and personalized learning.
 
 A stronger version could evolve from:
 
@@ -530,16 +501,30 @@ formative reassessment
 updated learner model
 ```
 
-This would allow the system to answer more meaningful educational questions:
+This would allow the system to support more meaningful educational decisions, such as:
 
-- Which concepts has the learner mastered?
-- Which misconceptions repeatedly appear?
-- Which prerequisite concept is missing?
-- What should the learner study next?
-- Should the next activity explain, demonstrate, practise, or assess?
-- Has the learner improved after the intervention?
+- identifying which concepts a learner has mastered;
+- detecting repeated misconceptions;
+- tracing missing prerequisite knowledge;
+- deciding what the learner should study next;
+- choosing whether the next activity should explain, demonstrate, practise, or assess;
+- updating recommendations after new evidence of learner performance.
 
-This progression—from a score-based recommendation prototype toward a structured learner model and adaptive learning path—is the main research direction I would be interested in exploring further.
+The main architectural limitation in the current prototype is that personalization is based on the quiz context and overall score rather than a persistent, concept-level learner model.
+
+Future work could therefore focus on:
+
+- question-level performance logging;
+- topic and prerequisite tagging;
+- longitudinal learner profiles;
+- mastery estimation;
+- adaptive difficulty progression;
+- formative assessment loops;
+- knowledge-graph or cognitive-graph representations;
+- LLM-assisted learning-path planning;
+- evaluation of recommendation quality and learning outcomes.
+
+The long-term direction is to move from a score-based recommendation system toward a system that continuously updates its representation of learner knowledge and uses that state to determine the next most useful learning activity.
 
 ---
 
