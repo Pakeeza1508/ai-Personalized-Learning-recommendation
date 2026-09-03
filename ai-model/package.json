@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Noor Fatima",
-  "contributors": ["Minhal Zubair"],
+  "contributors": [
+    "Minhal Zubair",
+    "Pakeeza Khalid"
+  ],
   "license": "ISC",
   "dependencies": {
+    "@google/genai": "^2.21.0",
     "bard-ai": "^2.0.3",
-    "bard-api-node": "^2.1.0",
     "dotenv": "^16.4.7"
   }
 }

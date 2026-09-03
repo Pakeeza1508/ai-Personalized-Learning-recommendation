@@ -164,5 +164,5 @@ The project is console-based, so its primary output is text rather than a web in
 ## Authors
 
 - Noor Fatima
-- Muhammad Usman Rana
 - Minhal Zubair
+- Pakeeza Khalid
