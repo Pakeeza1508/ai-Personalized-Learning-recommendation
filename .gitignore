@@ -1,0 +1,19 @@
+# Secrets and local environment configuration
+.env
+.env.*
+!.env.example
+
+# Generated/local build output
+*.exe
+*.o
+*.obj
+ai-model/node_modules/
+oop final dashboard/node_modules/
+
+# Local application data generated while using the dashboard
+oop final dashboard/users.txt
+oop final dashboard/Login.txt
+oop final dashboard/marks.txt
+oop final dashboard/messages.txt
+oop final dashboard/selectedsubject.txt
+oop final dashboard/userchat.txt
