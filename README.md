@@ -1,167 +1,566 @@
 # AI-Based Personalized Learning Recommendation System
 
-> **Semester project:** This educational semester project demonstrates object-oriented C++, file-based quiz management, and an AI-assisted learning recommendation workflow. It is not a production learning management system.
+> **Semester Project / Research Prototype**  
+> This project was developed as an educational semester project to demonstrate object-oriented programming in C++, quiz-based learner assessment, local performance tracking, and an LLM-assisted recommendation pipeline. It is a research-oriented prototype rather than a production learning management system.
 
 ## Overview
 
-This Windows console application lets a learner register or log in, select a subject, difficulty level, and number of questions, and take a multiple-choice quiz. It calculates the result, saves it locally, and asks a Google Bard/Gemini-compatible API wrapper for study-source recommendations.
+The **AI-Based Personalized Learning Recommendation System** is a Windows console application that combines a rule-based assessment engine with a generative-AI recommendation layer.
 
-The C++ dashboard is the main application. The Node.js program in `ai-model/` is an external recommendation assistant invoked after a quiz. A duplicate script in `oop final dashboard/` is retained for compatibility with the original layout.
+A learner can:
 
-## Technology Stack
+- register or log in;
+- choose a subject and difficulty level;
+- select the number of quiz questions;
+- answer multiple-choice questions;
+- receive an automatically calculated score and percentage;
+- receive AI-generated study recommendations based on the selected quiz, its content, and the learner's performance.
 
-- C++ with object-oriented programming
-- MinGW/Dev-C++ project files and Windows console APIs
-- Node.js for the AI recommendation bridge
-- `bard-api-node` and `bard-ai` npm packages
-- Plain-text files for question banks and local application data
+The application separates deterministic assessment from AI reasoning:
 
-## Student Inputs and Performance Data
+- **C++** handles user interaction, quiz selection, answer checking, scoring, and local persistence.
+- **Node.js** acts as an AI integration layer.
+- **Google Gemini** analyzes the quiz context and the learner's overall score to produce review topics, learning resources, and a short study plan.
 
-The learner provides a username/password during registration or login, then selects:
+This separation was intentional: the LLM does not decide whether an answer is correct. Grading remains deterministic and reproducible, while the LLM is used only for higher-level educational guidance.
 
-1. Subject: Math, Physics, Chemistry, Computer, English, Science, or General.
-2. Difficulty: Basic, Moderate, or Difficult. `High` is also accepted internally.
-3. Number of questions from 1 to 20.
-4. One answer (`a`, `b`, `c`, or `d`) for each displayed question.
+---
 
-The application derives the correct-answer count, the percentage `(correct answers / selected questions) * 100`, and the selected quiz filename such as `ChemistryBasic.txt`.
+## Research Motivation
 
-Results are appended to `marks.txt`; the selected quiz is appended to `selectedsubject.txt`. These are local student/application data files and should not be committed to a public repository.
+Traditional quiz applications usually stop after displaying a score. This project explores a simple extension:
 
-## Exact Personalization and Recommendation Logic
+**Can an assessment result be converted into actionable learning guidance using a large language model?**
 
-1. The user selects a subject and level.
-2. `capitalizeFirst()` normalizes the first character and `constructFilename()` creates `<Subject><Level>.txt`.
-3. `takequiz()` selects the matching derived `Subject` class.
-4. The first `N` questions from that file are displayed.
-5. Each answer is compared with the answer key in the question file.
-6. The score and percentage are calculated and saved.
-7. C++ invokes `node ../ai-model/script.js <quiz-file> <percentage>`.
-8. Node sends this prompt to the external assistant: `ChemistryBasic.txt percentage 80. Recommend me sources to improve`.
-9. The returned recommendation text is printed in the console.
+The prototype implements an early version of an intelligent educational system in which learner performance becomes an input to a recommendation component.
 
-Personalization currently uses the quiz category (subject plus level) and overall percentage. The code does not calculate per-topic accuracy, retain a per-student performance history, or automatically choose the next difficulty level. The recommendation is AI-generated, but quiz selection and grading are handled by C++.
+The current system performs **coarse-grained personalization** using:
 
-## Classes, Data Structures, and Algorithms
+- selected subject;
+- selected difficulty level;
+- quiz content;
+- overall percentage.
 
-- `Question` is a struct containing the question, four options, and answer key.
-- `Subject` is an abstract base class with a fixed `Question questions[20]` array.
-- Concrete classes such as `MathBasic`, `ChemistryDifficult`, and `EnglishModerate` inherit from `Subject` and load their matching text file.
-- `takequiz()` uses an array of 20 `Subject*` objects and conditional mapping to select the requested class.
-- `load_file()` reads each question as six lines: question, four options, and answer key.
-- `ask_questions()` loops through the requested questions, compares answers, and calculates the percentage.
-- `ifstream` and `ofstream` provide local file persistence.
+It does not yet maintain a detailed learner model or infer exact misconceptions from individual incorrect answers. This makes the project a useful baseline for extending toward more advanced adaptive-learning research.
 
-The quiz algorithm is linear in the number of displayed questions: $O(N)$ time and $O(1)$ additional quiz-state space, excluding the fixed 20-question array.
+---
 
-## Weak Areas and Adaptive Paths
+# System Architecture
 
-The current implementation identifies weakness only at the **quiz level**: a low percentage indicates that the learner needs improvement in the selected subject/difficulty category. Questions are not tagged by topic, so the system cannot identify a specific sub-area such as algebra or grammar.
-
-There is no automatic multi-step adaptive path yet. The implemented path is:
-
-`user-selected subject/level -> quiz -> percentage -> AI study-source recommendation`
-
-The learner must manually choose a later quiz. A future version could tag each question by topic, store attempts per learner, and use score thresholds to select revision or a different level automatically.
-
-## AI/API Integration
-
-An external LLM/API really exists in `ai-model/script.js` and the compatibility copy under `oop final dashboard/`, using `bard-api-node`.
-
-- **Purpose:** turn the selected quiz category and score into readable study-source suggestions.
-- **Input:** quiz filename and percentage only; no complete student profile or answer history.
-- **Output:** free-form recommendation text printed to the console.
-- **Not performed by the LLM:** grading, question selection, percentage calculation, or C++ class selection.
-
-The package name reflects the original Bard integration. Google Bard was later rebranded as Gemini, and this third-party wrapper may require maintenance if the upstream service changes.
-
-## Secure API Key Setup
-
-The key is read from the `GOOGLE_API_KEY` environment variable and is not stored in source code.
-
-PowerShell:
-
-```powershell
-$env:GOOGLE_API_KEY = "your_new_key_here"
-node .\ai-model\script.js ChemistryBasic.txt 80
+```text
+                    ┌──────────────────────────┐
+                    │        Learner           │
+                    │ register / login / quiz  │
+                    └────────────┬─────────────┘
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │   C++ Console Dashboard  │
+                    │                          │
+                    │ - subject selection      │
+                    │ - difficulty selection   │
+                    │ - question presentation  │
+                    │ - answer validation      │
+                    │ - score calculation      │
+                    └────────────┬─────────────┘
+                                 │
+                    quiz file + percentage
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │  Node.js AI Bridge       │
+                    │  ai-model/script.js      │
+                    │                          │
+                    │ - reads quiz file        │
+                    │ - loads API key          │
+                    │ - builds AI prompt       │
+                    │ - calls Gemini API       │
+                    └────────────┬─────────────┘
+                                 │
+                  quiz content + performance
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │     Google Gemini        │
+                    │                          │
+                    │ - identifies subject     │
+                    │   areas in the quiz      │
+                    │ - suggests topics        │
+                    │   worth reviewing        │
+                    │ - recommends resources   │
+                    │ - generates study plan   │
+                    └────────────┬─────────────┘
+                                 │
+                                 ▼
+                    ┌──────────────────────────┐
+                    │ Personalized Guidance    │
+                    │ printed in the console   │
+                    └──────────────────────────┘
 ```
 
-Command Prompt:
+---
 
-```bat
-set GOOGLE_API_KEY=your_new_key_here
-node ai-model\script.js ChemistryBasic.txt 80
+# AI Architecture
+
+The AI component is intentionally implemented as a separate layer rather than embedding LLM logic directly into the C++ quiz engine.
+
+## 1. Assessment Layer — C++
+
+The C++ application is responsible for deterministic operations:
+
+1. selecting the quiz file from the learner's subject and level;
+2. loading questions and answer keys;
+3. displaying the requested number of questions;
+4. comparing learner responses with the stored answer key;
+5. counting correct answers;
+6. calculating the percentage;
+7. saving local results;
+8. invoking the AI recommendation process.
+
+For a quiz with `N` questions:
+
+```text
+percentage = (correct_answers / N) × 100
 ```
 
-Install dependencies first:
+The LLM is therefore **not involved in grading**.
+
+---
+
+## 2. Learner Performance Representation
+
+After the quiz, the system creates a compact representation of the learner's current learning context.
+
+Current signals include:
+
+```text
+Subject / difficulty
+        +
+Full quiz content
+        +
+Overall percentage
+```
+
+For example:
+
+```text
+ChemistryBasic.txt
+80%
+```
+
+The Node.js layer also reads the actual contents of `ChemistryBasic.txt`, so Gemini receives the concepts represented in that assessment rather than only the filename.
+
+This is more informative than sending a score alone because the LLM can infer which scientific areas were tested.
+
+However, the current prototype does **not** send the learner's individual answers. Therefore, an 80% result tells the system that some improvement is needed, but it cannot truthfully determine exactly which questions the learner answered incorrectly.
+
+---
+
+## 3. AI Integration Layer — Node.js
+
+The C++ application invokes:
+
+```text
+node ../ai-model/script.js <quiz-file> <percentage>
+```
+
+The Node.js program then:
+
+1. validates the command-line arguments;
+2. locates the requested quiz file;
+3. reads the quiz using `fs.readFileSync()`;
+4. reads `GOOGLE_API_KEY` from the root `.env` file;
+5. initializes the official `@google/genai` SDK;
+6. constructs an educational-analysis prompt;
+7. sends the prompt to Gemini;
+8. prints the generated recommendation back to the console.
+
+Conceptually:
+
+```text
+C++ Assessment Engine
+        │
+        │ filename + percentage
+        ▼
+Node.js Integration Layer
+        │
+        │ quiz content + percentage + instructions
+        ▼
+Gemini
+        │
+        ▼
+Educational Recommendation
+```
+
+---
+
+## 4. LLM Reasoning Layer — Gemini
+
+The LLM receives instructions to act as a personalized learning assistant.
+
+Its input contains:
+
+- the learner's overall score;
+- the questions in the completed quiz;
+- answer options;
+- answer keys;
+- explicit instructions not to claim knowledge of the learner's individual incorrect answers.
+
+The generated response is structured around:
+
+- performance assessment;
+- main subject areas represented in the quiz;
+- topics worth reviewing;
+- learning-resource recommendations;
+- a short study plan.
+
+This keeps the AI role focused on **interpretation and guidance**, while objective assessment remains outside the model.
+
+---
+
+## 5. Recommendation Output
+
+A typical response can contain:
+
+```text
+Performance Assessment
+        ↓
+Relevant Subject Areas
+        ↓
+Recommended Review Topics
+        ↓
+Learning Resources
+        ↓
+Short Study Plan
+```
+
+Because the response is generated by an LLM, the wording and resource suggestions may vary between runs.
+
+---
+
+# Personalization Logic
+
+The current personalization pipeline is:
+
+```text
+Learner chooses subject + difficulty
+                ↓
+       Learner completes quiz
+                ↓
+     C++ calculates percentage
+                ↓
+ Node.js reads the completed quiz domain
+                ↓
+ Gemini analyzes quiz context + score
+                ↓
+ Personalized review recommendations
+```
+
+This should be described as **performance-aware recommendation**, not full adaptive learning.
+
+The system currently personalizes recommendations using the learner's immediate assessment context. It does not yet implement:
+
+- per-topic mastery scores;
+- misconception detection from wrong answers;
+- longitudinal learner profiles;
+- automatic difficulty progression;
+- knowledge tracing;
+- automatic next-activity selection.
+
+---
+
+# Example Data Flow
+
+Suppose a learner chooses:
+
+```text
+Subject: Chemistry
+Difficulty: Basic
+Questions: 5
+Correct Answers: 4
+```
+
+The C++ application calculates:
+
+```text
+points = 4
+percentage = 80
+quiz = ChemistryBasic.txt
+```
+
+It then invokes:
+
+```text
+node ../ai-model/script.js ChemistryBasic.txt 80
+```
+
+The Node.js layer reads the complete quiz file and constructs an input conceptually similar to:
+
+```text
+The student completed the following science quiz and scored 80%.
+
+[quiz questions, options, and answer keys]
+
+Identify the subject areas represented in this assessment.
+Recommend topics worth reviewing, useful learning resources,
+and a short study plan.
+
+Do not claim that a specific question was answered incorrectly,
+because individual student responses are not available.
+```
+
+Gemini may then identify areas such as:
+
+- chemical notation;
+- states of matter;
+- forces and energy;
+- plant processes;
+- basic astronomy;
+
+and generate targeted revision suggestions.
+
+---
+
+# Core C++ Design
+
+## `Question`
+
+Represents a multiple-choice question containing:
+
+- question text;
+- four answer options;
+- correct-answer key.
+
+## `Subject`
+
+An abstract base class responsible for the common quiz representation.
+
+Concrete subject/difficulty classes inherit from it and load the corresponding text-based question bank.
+
+Examples include:
+
+```text
+MathBasic
+MathModerate
+MathDifficult
+
+ChemistryBasic
+ChemistryModerate
+ChemistryDifficult
+```
+
+## Quiz Selection
+
+The application converts the learner's selected subject and level into a filename such as:
+
+```text
+Chemistry + Basic
+        ↓
+ChemistryBasic.txt
+```
+
+The matching subject class is then selected and used for the quiz.
+
+## Quiz Complexity
+
+For `N` displayed questions, the assessment loop is approximately:
+
+- **Time complexity:** `O(N)`
+- **Additional quiz-state space:** `O(1)` beyond the fixed question storage.
+
+---
+
+# Technology Stack
+
+| Component | Technology | Responsibility |
+|---|---|---|
+| User interface | C++ console | Learner interaction and navigation |
+| Assessment engine | C++ | Quiz loading, grading, score calculation |
+| Local persistence | Text files | Users, quiz results, question banks |
+| AI integration | Node.js | Connects C++ application with Gemini |
+| LLM SDK | `@google/genai` | Official Gemini API client |
+| AI model | Google Gemini | Educational analysis and recommendations |
+| Secrets | `.env` | Local API-key configuration |
+| Compiler | GCC / MinGW-w64 | Windows executable generation |
+
+---
+
+# Repository Layout
+
+```text
+.
+├── ai-model/
+│   ├── package.json
+│   ├── package-lock.json
+│   └── script.js
+│
+├── oop-final-dashboard/
+│   ├── dashboard project.cpp
+│   ├── quiz.h
+│   ├── progress.h
+│   ├── registeruser.h
+│   ├── loginuser.h
+│   ├── minhalchat.h
+│   ├── decoration.h
+│   └── *.txt                 # quiz question banks
+│
+├── .env.example
+├── .gitignore
+└── README.md
+```
+
+Generated executables, Node dependencies, secrets, and runtime user data should not be committed.
+
+---
+
+# Running the Project
+
+## 1. Install Node.js Dependencies
 
 ```powershell
 cd ai-model
 npm install
 ```
 
-The included `.env.example` documents the variable name, and both Node scripts load the root `.env` automatically. Never commit `.env`, real API keys, `node_modules`, or generated student data. Because the old key was previously committed, revoke/delete it in Google AI Studio and create a replacement before making the repository public. Removing it from the latest file does not remove it from Git history; use an approved secret-removal/history-rewrite tool on the private repository before the public push.
+## 2. Configure Gemini API Access
 
-## Example: Input -> Decision -> Recommendation
-
-**Input:** Chemistry, Basic, 5 questions; the learner answers 4 correctly.
-
-**Decision:** `ChemistryBasic.txt` is selected, `points = 4`, `percentage = 80`, and C++ calls:
+Create a root `.env` file:
 
 ```text
-node ../ai-model/script.js ChemistryBasic.txt 80
+GOOGLE_API_KEY=your_api_key_here
 ```
 
-**Recommendation:** The LLM receives `ChemistryBasic.txt percentage 80. Recommend me sources to improve` and may return chemistry revision sources and practice advice. The exact response can vary because it is generated by an external service.
+Never commit the real `.env` file.
 
-## Representative Output
+## 3. Compile the C++ Dashboard
+
+Using a MinGW-w64 / MSYS2 GCC environment:
+
+```powershell
+cd oop-final-dashboard
+g++ ".\dashboard project.cpp" -std=c++17 -static -static-libgcc -static-libstdc++ -o ".\dashboard-static.exe"
+```
+
+## 4. Run
+
+```powershell
+.\dashboard-static.exe
+```
+
+Internet access is required when the AI recommendation stage is invoked.
+
+---
+
+# Current Limitations
+
+This project intentionally remains a semester-level prototype.
+
+Current limitations include:
+
+- personalization is based on assessment context and overall score rather than exact learner mistakes;
+- individual answers are not passed to the recommendation model;
+- questions are not tagged with fine-grained concepts;
+- there is no persistent learner knowledge model;
+- there is no automatic learning-path generation;
+- difficulty progression is user-selected rather than adaptive;
+- plain-text local user data is not appropriate for production use;
+- the dashboard is Windows-console specific;
+- LLM recommendations can vary and should not be treated as deterministic assessment results.
+
+---
+
+# Research Relevance to MITACS GRI 2027
+
+This project is particularly relevant to my selected MITACS Globalink Research Internship project:
+
+**Project 51202 — LLM-Powered Intelligent Educational Systems, Athabasca University.**
+
+That research direction focuses on using large language models in personalized online learning, including areas such as:
+
+- learner-aware educational support;
+- personalized learning paths;
+- planning learning activities;
+- adaptive practice;
+- formative assessment;
+- structured representations of curriculum and learner knowledge.
+
+My semester project implements a much smaller prototype of the same general research problem:
 
 ```text
-Total Points: 4
-Your Percentage: 80%
-Loading suggestions...
-Review introductory chemistry concepts and practise questions from a trusted source.
+Assessment
+    ↓
+Learner-performance signal
+    ↓
+LLM interpretation
+    ↓
+Personalized learning guidance
 ```
 
-The project is console-based, so its primary output is text rather than a web interface. A screenshot of a captured console run can be added to this section; the text output above is a reproducible example.
+The current project does not yet implement knowledge graphs or a full adaptive-learning policy. Instead, it gave me practical experience with an important first step: connecting deterministic learner assessment with an LLM-based recommendation component.
 
-## Test Cases
+The architecture also exposes clear research extensions.
 
-| Case | Input | Expected result |
-|---|---|---|
-| Valid basic quiz | Chemistry, Basic, 5; 4 correct | Loads `ChemistryBasic.txt`, records 4 and 80%, invokes assistant |
-| Perfect score | Valid quiz; all answers correct | Percentage is 100% and recommendation call runs |
-| Zero score | Valid quiz; no answers correct | Percentage is 0% and improvement recommendation is requested |
-| Invalid subject | Biology, Basic, 5 | Prints invalid subject/level message |
-| Invalid level | Math, Advanced, 5 | Prints invalid subject/level message |
-| Missing key | `GOOGLE_API_KEY` unset | Node stops with a clear configuration error and sends no request |
-| Missing arguments | `node script.js` | Node prints a usage error |
-| Missing question file | Unavailable quiz file | C++ reports a file-open failure under current implementation |
+## Possible Research Extension
 
-## Limitations
-
-- The third-party Bard/Gemini wrapper requires internet access and a valid key.
-- Recommendations may be generic because only filename and score are sent.
-- Questions are taken in file order, not selected randomly or by mastery.
-- There is no topic tagging, longitudinal student model, or automatic level progression.
-- Plain-text credentials and scores are unsuitable for production privacy or concurrent multi-user use.
-- Windows-specific APIs and shell commands make the dashboard non-portable as written.
-- Input validation is limited; malformed files or invalid question counts can behave incorrectly.
-- The npm `test` script is still a placeholder; current verification is manual.
-
-## Repository Layout
+A stronger version could evolve from:
 
 ```text
-.
-├── ai-model/                 Node.js recommendation bridge
-├── oop final dashboard/      C++ dashboard, headers, quiz banks, project files
-├── .env.example              API variable template
-├── .gitignore                Secret, build, dependency, and local-data exclusions
-└── README.md                 Project documentation
+quiz + overall score
+        ↓
+LLM recommendation
 ```
 
-## Authors
+to:
+
+```text
+question-level learner responses
+        ↓
+concept / topic tagging
+        ↓
+learner mastery representation
+        ↓
+knowledge or cognitive graph
+        ↓
+LLM-based learning-path planner
+        ↓
+adaptive learning activity
+        ↓
+formative reassessment
+        ↓
+updated learner model
+```
+
+This would allow the system to answer more meaningful educational questions:
+
+- Which concepts has the learner mastered?
+- Which misconceptions repeatedly appear?
+- Which prerequisite concept is missing?
+- What should the learner study next?
+- Should the next activity explain, demonstrate, practise, or assess?
+- Has the learner improved after the intervention?
+
+This progression—from a score-based recommendation prototype toward a structured learner model and adaptive learning path—is the main research direction I would be interested in exploring further.
+
+---
+
+# What I Learned From This Project
+
+The project gave me hands-on experience with:
+
+- designing an object-oriented C++ application;
+- separating assessment logic from generative-AI reasoning;
+- integrating a C++ program with a Node.js AI service;
+- working with an external LLM API;
+- managing API keys securely through environment variables;
+- converting structured assessment context into an LLM prompt;
+- evaluating the difference between a recommendation system and a genuinely adaptive learning system;
+- identifying architectural limitations that would need to be solved for research-grade personalization.
+
+A key lesson was that simply adding an LLM does not automatically make a learning system adaptive. Meaningful personalization requires richer learner-state information, concept-level assessment, and mechanisms for updating future learning activities based on evidence of performance.
+
+---
+
+# Authors
 
 - Noor Fatima
 - Minhal Zubair
